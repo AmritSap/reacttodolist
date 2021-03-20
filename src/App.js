@@ -29,7 +29,7 @@ const toDoToatalHrs=taskLists.reduce((subTtl,item)=>
 const notToDoToatalHrs=noToDoList.reduce((subTtl,item)=>
  subTtl + item.hr,0
 )
-const totalHrs=toDoToatalHrs+notToDoToatalHrs;
+const totalHrs= +toDoToatalHrs + +notToDoToatalHrs;
 
 // to hold the deleted item in tasklist
   const handleOnChange=e=>{
@@ -78,7 +78,7 @@ const totalHrs=toDoToatalHrs+notToDoToatalHrs;
 
   }
   const handOnAddTask= (frmDt) =>{
-    if (totalHrs+ Number(frmDt.hr)>168){
+    if (+totalHrs + +frmDt.hr>168){
       return alert("You are going pass the hours in the week")
     }
 
@@ -137,7 +137,7 @@ const totalHrs=toDoToatalHrs+notToDoToatalHrs;
   </Col>
 </Row>
 <hr></hr>
-<Row><Alert  variant="info">You have  {totalHrs}/168 hours of task to be done </Alert></Row>
+<Row><Alert  variant="info">You have  {+totalHrs}/168 hours of task to be done </Alert></Row>
 <Row > <Button data-toggle="tooltip" title="Click here to  delete the items" variant="primary"  type="" onClick={deleteItems}> Delete </Button></Row>
 {/* list items */}
 

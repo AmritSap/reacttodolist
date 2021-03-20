@@ -11,7 +11,7 @@ export const AddForm = ({handleOnAddTask}) => {
     const handleOnChange = e =>
     {
         const {name,value}=e.target;
-        setTask({...task,[name]: value,}  
+        setTask({...task,[name]:name==='hr'?+value: value,}  
 )
     }
     const handleOnSubmit =e =>{
