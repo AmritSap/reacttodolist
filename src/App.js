@@ -114,34 +114,57 @@ const totalHrs= +toDoToatalHrs + +notToDoToatalHrs;
 
   return (
     <div className="main">
-<Container variant="primary" >
-  <Row>
-    <Col>
-    <div className="text-center pt-5"><h1>Not To Do List</h1></div>
-    </Col>
-  </Row>
-  <hr></hr>
+      <Container variant="primary">
+        <Row>
+          <Col>
+            <div className="text-center pt-5">
+              <h1>Not To Do List</h1>
+            </div>
+          </Col>
+        </Row>
+        <hr></hr>
 
-<AddForm handleOnAddTask={handOnAddTask}
-/>
-<hr></hr>
-<Row>
-  <Col>
-  <TaskLists taskLists={taskLists}
-  handOnMarkAsNotToDo={handOnMarkAsNotToDo} handleOnChange={handleOnChange}
-  />
-  </Col>
-  <Col>
-  <NoToDoList  noToDoList={noToDoList}
-  markAsToDo={markAsToDo} handleOnChangeNotToDo={handleOnChangeNotToDo} />
-  </Col>
-</Row>
-<hr></hr>
-<Row><Alert  variant="info">You have  {+totalHrs}/168 hours of task to be done </Alert></Row>
-<Row > <Button data-toggle="tooltip" title="Click here to  delete the items" variant="primary"  type="" onClick={deleteItems}> Delete </Button></Row>
-{/* list items */}
-
-</Container>
+        <AddForm handleOnAddTask={handOnAddTask} />
+        <hr></hr>
+        <Row>
+          <Col>
+            <TaskLists
+              taskLists={taskLists}
+              handOnMarkAsNotToDo={handOnMarkAsNotToDo}
+              handleOnChange={handleOnChange}
+              itemToDelete={itemToDelete}
+            />
+          </Col>
+          <Col>
+            <NoToDoList
+              noToDoList={noToDoList}
+              markAsToDo={markAsToDo}
+              handleOnChangeNotToDo={handleOnChangeNotToDo}
+              notToDoItemToDelete={notToDoItemToDelete}
+            />
+          </Col>
+        </Row>
+        <hr></hr>
+        <Row>
+          <Alert variant="info">
+            You have {+totalHrs}/168 hours of task to be done{" "}
+          </Alert>
+        </Row>
+        <Row>
+          {" "}
+          <Button
+            data-toggle="tooltip"
+            title="Click here to  delete the items"
+            variant="primary"
+            type=""
+            onClick={deleteItems}
+          >
+            {" "}
+            Delete{" "}
+          </Button>
+        </Row>
+        {/* list items */}
+      </Container>
     </div>
   );
 }
