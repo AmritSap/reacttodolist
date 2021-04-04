@@ -6,13 +6,12 @@ export const createTask = frmData => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			const response = await axios.post(rootUrl, frmData);
-
 			resolve(response.data);
-		} catch (error) {
+		    } catch (error) {
 			console.log(error);
 			resolve({
-				status: "error",
-				message: error.message,
+			status: "error",
+			message: error.message,
 			});
 		}
 	});
@@ -22,29 +21,27 @@ export const getTaskLists = () => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			const { data } = await axios.get(rootUrl);
-
 			resolve(data.result);
-		} catch (error) {
+		    } catch (error) {
 			console.log(error);
 			resolve({
-				status: "error",
-				message: error.message,
+			status: "error",
+			message: error.message,
 			});
-		}
+		    }
 	});
 };
 
 export const deleteTaskLists = ids => {
 	return new Promise(async (resolve, reject) => {
 		try {
-			const { data } = await axios.delete(rootUrl, { data: ids });
-
+			const { data } = await axios.delete(rootUrl,{ data: ids });
 			resolve(data);
-		} catch (error) {
+		    } catch (error) {
 			console.log(error);
 			resolve({
-				status: "error",
-				message: error.message,
+			status: "error",
+			message: error.message,
 			});
 		}
 	});
@@ -53,14 +50,14 @@ export const deleteTaskLists = ids => {
 export const switchTask = todo => {
 	return new Promise(async (resolve, reject) => {
 		try {
-			const { data } = await axios.patch(rootUrl, { todo });
+			const { data } = await axios.patch(rootUrl,{ todo });
 			console.log(data);
 			resolve(data);
-		} catch (error) {
+		    } catch (error) {
 			console.log(error);
 			resolve({
-				status: "error",
-				message: error.message,
+			status: "error",
+			message: error.message,
 			});
 		}
 	});

@@ -10,9 +10,7 @@ import { fetchTaskLists, } from "./components/taskList/taskAction.js";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isPending, status, message, totalHrs, itemToDelete } = useSelector(
-    (state) => state.task
-  );
+  const { isPending, status, message, totalHrs, itemToDelete } = useSelector((state) => state.task);
 
   useEffect(() => {
     dispatch(fetchTaskLists());
