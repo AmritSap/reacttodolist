@@ -6,11 +6,13 @@ import { deleteTasks } from "./components/taskList/taskAction";
 import "./App.css";
 import { TaskLists } from "./components/taskList/TaskLists";
 import { NoToDoList } from "./components/taskList/NoToDoList";
-import { fetchTaskLists, } from "./components/taskList/taskAction.js";
+import { fetchTaskLists } from "./components/taskList/taskAction.js";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isPending, status, message, totalHrs, itemToDelete } = useSelector((state) => state.task);
+  const { isPending, status, message, totalHrs, itemToDelete } = useSelector(
+    (state) => state.task
+  );
 
   useEffect(() => {
     dispatch(fetchTaskLists());
