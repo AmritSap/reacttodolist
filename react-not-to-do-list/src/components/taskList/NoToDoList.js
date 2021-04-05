@@ -7,10 +7,7 @@ import { taskSwitch } from "./taskAction.js";
 export const NoToDoList = () => {
   const dispatch = useDispatch();
   const { notToDoLists, itemToDelete } = useSelector((state) => state.task);
-  const totalSavedTime = notToDoLists.reduce(
-    (subTtl, row) => subTtl + row.hr,
-    0
-  );
+  const totalSavedTime = notToDoLists.reduce((subTtl, row) => subTtl + row.hr, 0);
   return (
     <>
       <h2>Not To Do Lists</h2>
